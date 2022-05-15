@@ -13,12 +13,14 @@ const Bootcamp = require("../models/Bootcamp")
 const advancedResults = require("../middleware/advancedResults")
 
 const courseRoute = require("./courses")
+const reviewRoute = require("./reviews")
 
 const { protect, authorize } = require("../middleware/auth")
 
 const router = express.Router()
 
 router.use("/:bootcampId/courses", courseRoute)
+router.use("/:bootcampId/reviews", reviewRoute)
 
 router.route("/radius/:zipcode/:distance").get(getBootcampsInRadius)
 
